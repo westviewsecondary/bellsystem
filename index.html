@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <title>Westview Bell System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="header">
+      <div>
+        <p class="kicker">WESTVIEW SECONDARY</p>
+        <h1>Bell System</h1>
+        <p class="intro">Real mechanical school-bell audio for lessons and emergency patterns.</p>
+      </div>
+      <div class="clock-card">
+        <div id="clock">--:--:--</div>
+        <div id="date">--</div>
+      </div>
+    </header>
+
+    <section id="status" class="status ready">
+      <div class="status-light"></div>
+      <div class="status-copy">
+        <strong id="statusTitle">System ready</strong>
+        <span id="statusText">No bell is active.</span>
+      </div>
+      <button id="stopBtn" class="stop-btn">STOP ALL</button>
+    </section>
+
+    <section class="cards">
+      <article class="card lesson-card">
+        <div class="card-top">
+          <span class="tag blue">LESSONS</span>
+          <span class="icon">🔔</span>
+        </div>
+        <h2>Lesson bell</h2>
+        <p>A full mechanical bell burst, then silence, repeated the number of times you choose.</p>
+
+        <label for="lessonCount">Number of rings</label>
+        <select id="lessonCount">
+          <option value="1">1 ring</option>
+          <option value="2" selected>2 rings</option>
+          <option value="3">3 rings</option>
+          <option value="4">4 rings</option>
+        </select>
+
+        <label for="lessonGap">Pause between rings</label>
+        <select id="lessonGap">
+          <option value="900">Short — 0.9 sec</option>
+          <option value="1500" selected>Normal — 1.5 sec</option>
+          <option value="2200">Long — 2.2 sec</option>
+        </select>
+
+        <button id="lessonBtn" class="main-btn blue-btn">Ring lesson bell</button>
+        <div class="pattern-text">RING … RING … RING</div>
+      </article>
+
+      <article class="card lockdown-card">
+        <div class="card-top">
+          <span class="tag amber">LOCKDOWN</span>
+          <span class="icon">🔒</span>
+        </div>
+        <h2>Lockdown pattern</h2>
+        <p>Seven clear bell pulses, a long break, then the same seven-pulse pattern again.</p>
+
+        <div class="visual-pattern">
+          <div class="seven">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <span>LONG PAUSE</span>
+          <div class="seven">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+
+        <button id="lockdownBtn" class="main-btn amber-btn">Start lockdown pattern</button>
+        <div class="pattern-text">7 RINGS ······· 7 RINGS</div>
+      </article>
+
+      <article class="card fire-card">
+        <div class="card-top">
+          <span class="tag red">FIRE</span>
+          <span class="icon">🚨</span>
+        </div>
+        <h2>Fire alarm</h2>
+        <p>The real bell runs continuously with no programmed pause between rings.</p>
+
+        <div class="continuous-line">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <button id="fireBtn" class="main-btn red-btn">Start continuous fire alarm</button>
+        <div class="pattern-text">RIIIIIIIIIIIIIIIIING — CONTINUOUS</div>
+      </article>
+    </section>
+
+    <section class="card tester">
+      <div>
+        <span class="tag dark">AUDIO CHECK</span>
+        <h2>Test individual sounds</h2>
+        <p>Use these before relying on the patterns above.</p>
+      </div>
+      <div class="test-buttons">
+        <button data-test="lesson" class="soft-btn">Test lesson burst</button>
+        <button data-test="lockdown" class="soft-btn">Test lockdown pulse</button>
+        <button data-test="fire" class="soft-btn">Test fire sound</button>
+      </div>
+    </section>
+
+    <footer>
+      Browser demo/control panel only — not a replacement for certified school life-safety equipment.
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
